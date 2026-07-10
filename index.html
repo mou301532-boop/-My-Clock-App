@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material You Clock App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+    <div class="app-container">
+        <header>
+            <h1>Clock</h1>
+            <button id="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="showTab('clock')">Clock</button>
+            <button class="tab-btn" onclick="showTab('stopwatch')">Stopwatch</button>
+            <button class="tab-btn" onclick="showTab('timer')">Timer</button>
+        </nav>
+
+        <main>
+            <div id="clock" class="tab-content active">
+                <div class="time-display" id="current-time">00:00:00</div>
+                <div class="date-display" id="current-date">Loading...</div>
+            </div>
+
+            <div id="stopwatch" class="tab-content">
+                <div class="time-display" id="stopwatch-display">00:00:00.00</div>
+                <div class="action-buttons">
+                    <button class="primary-btn" onclick="startStopwatch()">Start</button>
+                    <button class="secondary-btn" onclick="pauseStopwatch()">Pause</button>
+                    <button class="tertiary-btn" onclick="resetStopwatch()">Reset</button>
+                </div>
+            </div>
+
+            <div id="timer" class="tab-content">
+                <div class="timer-inputs">
+                    <input type="number" id="t-hours" placeholder="00" min="0" max="99"><span>h</span>
+                    <input type="number" id="t-minutes" placeholder="00" min="0" max="59"><span>m</span>
+                    <input type="number" id="t-seconds" placeholder="00" min="0" max="59"><span>s</span>
+                </div>
+                <div class="time-display" id="timer-display">00:00:00</div>
+                <div class="action-buttons">
+                    <button class="primary-btn" onclick="startTimer()">Start</button>
+                    <button class="secondary-btn" onclick="pauseTimer()">Pause</button>
+                    <button class="tertiary-btn" onclick="resetTimer()">Reset</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

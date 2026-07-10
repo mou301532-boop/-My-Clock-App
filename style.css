@@ -1,0 +1,155 @@
+/* --- CSS Variables for Light/Dark Mode --- */
+:root {
+    --bg-color: #fdfcff;
+    --surface-color: #eaddff;
+    --text-color: #1c1b1f;
+    --primary: #6750a4;
+    --on-primary: #ffffff;
+    --secondary: #625b71;
+    --tertiary: #7d5260;
+    --card-radius: 28px;
+    --btn-radius: 100px; /* Pill shape for Material You */
+}
+
+[data-theme="dark"] {
+    --bg-color: #141218;
+    --surface-color: #2b2930;
+    --text-color: #e6e0e9;
+    --primary: #d0bcff;
+    --on-primary: #381e72;
+    --secondary: #ccc2dc;
+    --tertiary: #efb8c8;
+}
+
+/* --- Base Styles --- */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--surface-color);
+    padding: 30px;
+    border-radius: var(--card-radius);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+/* --- Header & Tabs --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 { margin: 0; font-size: 1.8rem; }
+
+#theme-toggle {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 12px;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.tab-btn.active {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+/* --- Main Content (Clock, Stopwatch, Timer) --- */
+.tab-content { display: none; text-align: center; }
+.tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.time-display {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: 20px 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.date-display {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+/* --- Buttons & Inputs --- */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: var(--btn-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.action-buttons button:active { transform: scale(0.95); }
+.action-buttons button:hover { opacity: 0.9; }
+
+.primary-btn { background-color: var(--primary); color: var(--on-primary); }
+.secondary-btn { background-color: var(--secondary); color: var(--bg-color); }
+.tertiary-btn { background-color: var(--tertiary); color: var(--bg-color); }
+
+.timer-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.timer-inputs input {
+    width: 60px;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-align: center;
+}
+.timer-inputs span { font-size: 1.2rem; font-weight: bold; color: var(--secondary); }
